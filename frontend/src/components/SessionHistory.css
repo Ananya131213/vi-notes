@@ -1,0 +1,115 @@
+/* ── Session History Panel ──────────────────────────────── */
+
+.history-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem;
+  overflow-y: auto;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.history-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
+}
+.close-btn {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.15s, color 0.15s;
+}
+.close-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+.history-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  margin: 0 0 1.5rem;
+}
+.history-note strong { color: #a78bfa; }
+
+.history-loading,
+.history-error,
+.history-empty {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  padding: 3rem;
+}
+.history-error { color: #f87171; }
+
+/* Sessions grid */
+.sessions-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.session-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.session-card:hover {
+  border-color: rgba(108,99,255,0.35);
+  background: rgba(108,99,255,0.07);
+}
+
+.session-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.85rem;
+}
+.session-id {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #a78bfa;
+}
+.session-date {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.session-card-stats {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.s-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 60px;
+}
+.s-stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+.s-stat-label {
+  font-size: 0.64rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  text-align: center;
+}
