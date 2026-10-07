@@ -1,8 +1,9 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AuthPage from './pages/AuthPage';
 import EditorPage from './pages/EditorPage';
+import SessionHistoryPage from './pages/SessionHistoryPage';
+import SessionReportPage from './pages/SessionReportPage';
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
@@ -34,6 +35,22 @@ export default function App() {
             element={
               <PrivateRoute>
                 <EditorPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/sessions"
+            element={
+              <PrivateRoute>
+                <SessionHistoryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/sessions/:sessionId/report"
+            element={
+              <PrivateRoute>
+                <SessionReportPage />
               </PrivateRoute>
             }
           />
